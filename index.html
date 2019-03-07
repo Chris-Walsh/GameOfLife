@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Game of Life</title>
+    <script src="./main.js"></script>
+    
+</head>
+
+
+<div class="wrapper" style="margin: 0 auto; width: 800px; position: relative;">
+        <style>
+                #canvas{
+                    display: block;
+                    margin: 0 auto
+                }
+            </style>
+        <canvas id="canvas" height="800px" width="800px"></canvas>
+     
+        
+     
+     </div>
+     <div class="controls" style="position: absolute; top:0; left:0;">
+     
+        
+
+        
+
+        <form id="menu">
+                <p><label for="item">Click to Add:</label></p>
+                <div>
+                    
+                        <p><input type="radio" id="item1"
+                         name="items" value="item1" checked="checked">
+                        <label for="item1">Single Cell</label></p>
+                    
+                        <p><input type="radio" id="item2"
+                         name="items" value="item2">
+                        <label for="item2">Pentadecathlon</label></p>
+                    
+                        <p><input type="radio" id="item3"
+                         name="items" value="item3">
+                        <label for="item3">Gosper Gun</label></p>
+    
+                        <p><input type="radio" id="item4"
+                         name="items" value="item4">
+                        <label for="item4">Glider</label></p>
+                    
+                </div>
+
+            <p><label for="speed">Starting Condition:</label></p>
+            <div>
+                
+                    <p><input type="radio" id="gameType0"
+                        name="options" value="gameType0" checked="checked">
+                       <label for="gameType0">Empty Starting Cells</label></p>
+
+                    <p><input type="radio" id="gameType1"
+                     name="options" value="gameType1">
+                    <label for="gameType1">Random Starting Cells</label></p>
+                
+                    <p><input type="radio" id="gameType2"
+                     name="options" value="gameType2">
+                    <label for="gameType2">Pentadecathlon</label></p>
+                
+                    <p><input type="radio" id="gameType3"
+                     name="options" value="gameType3">
+                    <label for="gameType3">Gosper Gun</label></p>
+
+                    <p><input type="radio" id="gameType4"
+                     name="options" value="gameType4">
+                    <label for="gameType4">Glider</label></p>
+                
+            </div>
+
+            <p><label for="size">Row and Column Size (38 - 100):</label></p>
+            <input type="number" id="size" name="size" min="38" max="100" value = "50">
+            
+            <p><label for="speed">Updates per Second (0.1-100):</label></p>
+            <input type="number" id="speed" name="speed" min="0.1" max="100" value = "2" step="0.1">
+
+            <p><input type="button" value="New Game" onclick="newGame()"></p>
+
+            <p><input type="button" value="Pause" onclick="pause()"></p>
+
+            <p><input type="button" value="Resume" onclick="resume()"></p>
+
+            <p><input type="button" value="Step" onclick="stepGame()"></p>
+        </form>
+ 
+    </div>
+
+    
+</html>
