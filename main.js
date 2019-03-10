@@ -137,7 +137,7 @@ window.onload = () => {
         }
     }
 
-    var socket = io.connect("https://24.16.255.56:8888");
+    var socket = io.connect("http://24.16.255.56:8888");
 
     socket.on("load", function (data) {
         loadGame(data.data, data.fps, data.size);
