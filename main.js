@@ -76,7 +76,7 @@ const countNeighbors = (grid, x, y) => {
 }
 
 const generation = (context, grid) => {
-    var currentGrid = grid;
+    currentGrid = grid;
     if (startNewGame) {
         currentGrid = newGameGrid;
         startNewGame = false;
@@ -136,6 +136,39 @@ window.onload = () => {
             clickExtra = glider(cellX, cellY);
         }
     }
+
+    var socket = io.connect("http://24.16.255.56:8888");
+
+    socket.on("load", function (data) {
+        loadGame(data.data, data.fps, data.size);
+        console.log(data);
+      
+    });
+
+    var text = document.getElementById("text");
+    var saveButton = document.getElementById("save");
+    var loadButton = document.getElementById("load");
+
+    saveButton.onclick = function () {
+        console.log("save");
+        text.innerHTML = "Saved."
+        socket.emit("save", { 
+            studentname: "Chris Walsh", 
+            statename: "aState", 
+            data: currentGrid,
+            fps: framesPerSecond,
+            size: rowSize
+        });
+    };
+
+    loadButton.onclick = function () {
+        console.log("load");
+        text.innerHTML = "Loaded."
+        socket.emit("load", { 
+            studentname: "Chris Walsh", 
+            statename: "aState",
+             });
+    };
 }
 
 const singleCell = (centerX, centerY) => {
@@ -317,6 +350,24 @@ function newGame() {
 
     document.getElementById('speed').value = framesPerSecond;
     document.getElementById('size').value = rowSize;
+
+}
+
+function loadGame(grid, fps, size) {
+    startNewGame = true;
+
+    newGameGrid = grid;
+    framesPerSecond = fps;
+    rowSize = size;
+
+    var form_elements = document.getElementById('menu').elements;
+    var gameType = form_elements['options'].value;
+
+    cellSize = fieldSize / rowSize;
+
+    document.getElementById('speed').value = framesPerSecond;
+    document.getElementById('size').value = rowSize;
+
 
 }
 

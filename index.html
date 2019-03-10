@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>The Game of Life</title>
+    <script type="text/javascript" src="http://24.16.255.56:8888/socket.io/socket.io.js"></script>
     <script src="./main.js"></script>
     
 </head>
@@ -87,6 +88,10 @@
             <p><input type="button" value="Resume" onclick="resume()"></p>
 
             <p><input type="button" value="Step" onclick="stepGame()"></p>
+
+            <div id = "text"></div>
+            <button id="save" type="button">Save</button>
+            <button id="load" type="button">Load</button>
         </form>
  
     </div>
